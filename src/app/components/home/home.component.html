@@ -1,0 +1,183 @@
+<div class="row">
+  <div class="col-md-2">
+    <app-side-nav></app-side-nav>
+  </div>
+  <div class="col-md-10">
+
+    <div class="top-bar mt-3">
+      <div class="row">
+        <div class="col-md-12">
+          <span class="mr-5 ml-3  "> <span class="underline">HR</span> User </span>
+
+
+          <div class="btn-group btn-group-toggle mr-5 language " ngbRadioGroup name="radioBasic" [(ngModel)]="language">
+            <span class="mr-1 mt-1">Language </span>
+            <label ngbButtonLabel class="btn-info">
+              <input ngbButton type="radio" value="English"> English
+            </label>
+
+            <label ngbButtonLabel class="btn-info">
+              <input ngbButton type="radio" [value]="false"> Arabic
+            </label>
+          </div>
+          <span class="icons">
+            <i class="fa fa-envelope mr-3 mt-2"></i>
+            <i class="fa fa-question-circle mr-3 mt-2 "></i>
+            <i class="fa fa-cog mr-3 mt-2 "></i>
+            <i class="fa fa-caret-down mt-2 "></i>
+          </span>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="bar mt-2 mb-3">
+      <!-- Show <input type="number" min="0" step="10" class="inputNumber mt-2" placeholder="0" #items
+        (change)="pageChanged(items.value)"> -->
+
+        <select (change)="handlePageSizeChange($event)" class=" inputNumber mt-2">
+          <option *ngFor="let size of config.pageSizes" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>
+    
+
+
+      <button class="mr-2 ml-2"><span class="light-blue"><i class="fa fa-plus mr-1"></i></span> employee</button>
+      <button class="mr-2 mt-2" (click)="open(content)"> <span class="light-blue"><i class="fa fa-plus mr-1"></i></span>
+        filter</button>
+      <button class="mr-2 mt-2">Export <i class="fa fa-download light-blue ml-1"></i></button>
+    </div>
+    <div class="wrapper pb-0 mb-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">
+              <input type="text" placeholder="Name &#xF002;" class=" search"
+                style="font-family:Arial, FontAwesome" (keyup)="search($event)">
+
+              <span class="light-blue search-icon">
+                <i class="fa fa-chevron-up"></i>
+              </span>
+            </th>
+            <th scope="col">Title</th>
+            <th scope="col">Hiring Date</th>
+            <th scope="col">Gross Salary</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of filtered  | paginate: config">
+
+            <td class="col-width">{{employee.fullName_FL | titlecase}} </td>
+            <td class="col-width">{{employee.position.name_FL | titlecase}}</td>
+            <td class="col-width">{{employee.hiringDate | date : "dd  MMM y"}}</td>
+            <td class="col-width">{{employee.firstContractingSalary | number}}</td>
+            <td class="col-width"><i class="fa fa-edit mr-2"></i> <span class="mr-3">Terminate</span> Suspend</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <ngb-progressbar style="margin-top: 20px;" type="info" [value]="config.currentPage" [max]="config.totalItems / config.itemsPerPage"></ngb-progressbar>
+      </div>
+      <div class="col-md-4 ">
+        <pagination-controls [responsive]="true" class="hide-page-numbers " (pageChange)="pageChanged($event)">
+        </pagination-controls>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</div>
+
+<ng-template #content let-modal>
+
+  <div class="modal-body">
+    <form #filterForm=ngForm>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-6">
+            <label for="dateOfBirth">Add Filter</label>
+
+          </div>
+          <div class="col-6">
+            <select class="form-control" [(ngModel)]="filterType" name="filterType" id="filterType">
+              <option value="Salary" selected="Salary">Salary</option>
+              <option value="Date">Hiring Date</option>
+            </select>
+          </div>
+
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-6">
+            <select class="form-control" [(ngModel)]="filterStatus" name="filterStatus" id="filterStatus">
+              <option value="Before">Before</option>
+              <option value="After"> After</option>
+              <option value="Between" selected="Between"> Between</option>
+            </select>
+          </div>
+
+        </div>
+        <br>
+        <div class="row">
+
+          <ng-template [ngIf]="filterStatus !='Between' && filterType == 'Salary' ">
+            <div class="col-12">
+              <input class="form-control" required [(ngModel)]="constant" name="constant" id="constant"
+                placeholder="Please Enter Salary">
+
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="filterStatus !='Between' && filterType == 'Date' ">
+            <div class="col-12">
+              <input class="form-control" [(ngModel)]="constant" name="constant" required id="constant"
+                placeholder="Please Enter Date">
+            </div>
+          </ng-template>
+
+
+
+
+        </div>
+        <div class="row">
+          <ng-template [ngIf]="filterStatus =='Between'">
+            <div class="col-4">
+              <input class="form-control" [(ngModel)]="from" placeholder="From" name="from" id="from" required>
+            </div>
+            <div class="col-4 text-center">
+              and
+            </div>
+
+            <div class="col-4">
+              <input class="form-control" [(ngModel)]=" to" name="to" id="To" placeholder="to" required>
+
+            </div>
+          </ng-template>
+        </div>
+        <br>
+        <div class="modal-footer ">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-outline-info center blue" [disabled]="!filterForm.valid"
+              (click)=" filter(filterType,filterStatus,from ,to,constant) ;modal.close('Save click') ">Confirm</button>
+          </div>
+
+          <div class="col-md-12">
+            <button type="button" class="btn btn-outline-info center "
+              (click)="modal.close('Save click')">Cancel</button>
+
+          </div>
+
+        </div>
+
+
+      </div>
+    </form>
+  </div>
+
+</ng-template>

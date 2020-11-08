@@ -1,0 +1,53 @@
+<div id="mySidenav" class="sidenav">
+
+
+
+    <div class="top-bar">
+
+        <span class="socials "> <span class="underline">HR</span> User </span>
+
+
+        <div class="btn-group btn-group-toggle mt-3  mb-3" ngbRadioGroup name="radioBasic" [(ngModel)]="language">
+
+            <label ngbButtonLabel class="btn-info">
+                <input ngbButton type="radio" value="English"> English
+            </label>
+
+            <label ngbButtonLabel class="btn-info">
+                <input ngbButton type="radio" [value]="false"> Arabic
+            </label>
+        </div>
+        <span class="socials">
+            <i class="fa fa-envelope mr-3 mt-2"></i>
+            <i class="fa fa-question-circle mr-3 mt-2 "></i>
+            <i class="fa fa-cog mr-3 mt-2 "></i>
+            <i class="fa fa-caret-down mt-2 "></i>
+        </span>
+
+        <hr>
+    </div>
+
+    <a class="closebtn" (click)="closeNav()">&times;</a>
+    <a>Esraa</a>
+    <a class="active"> <i class="fa fa-home active"></i> Home </a>
+    <a> <i class="fa fa-file-text" aria-hidden="true"></i> My Payslip </a>
+    <a> <img src="assets/images/loan.svg"> My Loans</a>
+    <a> <i class="fa fa-pie-chart" aria-hidden="true"></i> Reports</a>
+    <a> <i class="fa fa-cog"></i> Settings</a>
+    <br>
+
+    <button class="btn btn-dark darkButton mt-5">Website</button>
+    <span class="socials ">
+        <i class="fa fa-facebook social mt-2"></i>
+
+        <i class="fa fa-twitter social ml-4 mt-2"></i>
+        <i class="fa fa-linkedin social ml-4 mt-2"></i>
+    </span>
+</div>
+
+
+
+<div id="main">
+
+    <i class="fa fa-bars" (click)="openNav()"></i>
+</div>

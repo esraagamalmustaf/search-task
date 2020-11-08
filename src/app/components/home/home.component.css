@@ -1,0 +1,138 @@
+
+
+ .bar{
+     /* margin:20px 0px; */
+     margin-left: -1.5vw;
+
+ }
+ .bar button, .bar input ,.bar select{
+    border-radius: 5px;
+    padding: 5px 20px;
+    background: transparent;
+   border:2px solid #82c3ca;
+ }
+ th, td {
+    border-top: none;
+    border-bottom: none;
+    border-left: 2px solid #82c3ca;
+    border-right: 2px solid #82c3ca;
+  }
+  .table thead th{
+    border-bottom: 2px solid #82c3ca ;
+  }
+
+  .light-blue{
+    color: #82c3ca;
+  }
+  .search-icon{
+    position: relative;
+    left: 90%;
+    top: -30px;
+
+  }
+  .search{
+      border:none;
+      
+  }
+  ::ng-deep .modal-backdrop {
+      background-color: #fff!important;
+    }
+  ::ng-deep .modal-content{
+      border-radius: 0.9rem;
+    }
+    ::ng-deep .modal-body{
+      padding:3rem 3rem 0
+    }
+   
+    .btn-outline-info{
+      
+      color: #b3cee5;
+      border-color: #b3cee5;
+    }
+    .btn-outline-info:hover{
+      color: #fff;
+      background-color:#b3cee5 ;
+    } 
+    .blue{
+      background-color:#b3cee5 ;
+      color: black;
+    }
+    .blue:hover{
+    color: black;
+    }
+   
+     .center{
+      margin: 0px auto;width: 50%;display: block;
+    }
+    .wrapper{
+      border-top: 2px solid #82c3ca;
+      border-bottom: 2px solid #82c3ca;
+      border-radius: .5rem;
+      overflow-x: scroll;
+      padding-bottom: 0px;
+      margin-left: -1.5vw;
+      
+    }
+    .table{
+      margin:0px
+    }
+
+    .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle {
+      color: #fff;
+      background-color: #b3cee5;
+      border-color: #b3cee5;
+    }
+    .btn-info{
+      background-color:#dde3e9 ;
+      border-color:#dde3e9 ;
+      z-index: 0!important;
+    }
+    .col-width{
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    
+    }
+    .inputNumber{
+      width:100px
+    }
+   ::ng-deep .ngx-pagination .small-screen{
+      display: inline-block!important;
+    }
+    .hide-page-numbers /deep/ .ngx-pagination li:not(.pagination-previous):not(.pagination-next) {
+      display: none;
+    }
+    ::ng-deep .ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-next.disabled::after, ::ng-deep .ngx-pagination .pagination-previous a::before, .ngx-pagination .pagination-previous.disabled::before {
+     
+      color:#82c3ca ;
+    }
+    ::ng-deep.bg-info {
+      background-color: #747677 !important;
+  }
+   ::ng-deep .ngx-pagination{
+      margin-top:-.5rem!important;
+      float:right;
+    }
+   
+    @media(max-width:1000px){
+     ::ng-deep .ngx-pagination{
+        margin-top:1rem!important;
+        float:none
+      }
+      .top-bar{
+        display: none;
+      }
+     
+    }
+    /* @media(max-width:700px){
+      .icons{
+        display: block;
+        width:100%;
+        margin-top: 10px;
+      }
+      @media(max-width:600px){
+       
+      ::ng-deep .btn-group{
+        margin-top: 20px!important;
+       }
+      } 
+    }*/

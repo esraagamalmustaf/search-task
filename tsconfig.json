@@ -19,8 +19,13 @@
       "dom"
     ]
   },
+  "resolveJsonModule": true,
+  "esModuleInterop": true,
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  }
+  },
+
+ 
 }
+

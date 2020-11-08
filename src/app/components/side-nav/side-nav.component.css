@@ -1,0 +1,100 @@
+.sidenav {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+    background-color: #b3cee5; 
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  
+  .sidenav a:hover {
+    color: #fff;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 25px;
+    margin-left: 50px;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+    margin-left: 11vw;
+  }
+  .top-bar{
+    display: none;
+  }
+
+ 
+  .darkButton{
+      display: block;
+      margin: 8px 8px 8px 32px;
+      border-radius: .5rem;
+  }
+  .social{
+   
+    border-radius: 50%;
+    background: black;
+    padding: 5px;
+
+    
+  }
+  .socials .fa{
+      color: #fff;
+  }
+  .socials{
+    padding: 8px 8px 8px 32px;
+  }
+  .active{
+      color: #fff!important;
+  }
+  #mySidenav img{
+    width:20px
+  }
+ .btn-group{
+  display: block;
+  margin-left: 32px;
+ } 
+
+ .btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle {
+  color: #fff;
+  background-color: black;
+  border-color: black;
+}
+.btn-info{
+  background-color:#dde3e9 ;
+  border-color:#dde3e9 ;
+  z-index: 0!important;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+
+ 
+}
+@media screen and (max-width:1000px){
+  #main{
+    margin-left: 0px!important;
+    padding:1px;
+  }
+  .top-bar{
+    display: block;
+  }
+}
